@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Information</title>
+    <style>
+        body{
+            background-color: #EAF4FC;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #99C0ED;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 16px;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>User Information</h1>
+<p>FIO: <span th:text="${carUser.FIO}"></span></p>
+<p>Age: <span th:text="${carUser.age}"></span></p>
+<p>Experience: <span th:text="${carUser.experience}"></span></p>
+<p>Last Ride: <span th:text="${carUser.rides}"></span></p>
+<p>Violation: <span th:text="${carUser.violation}"></span></p>
+</body>
+</html>

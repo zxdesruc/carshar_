@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+
+        body {
+            background-color: #F4F8FB;
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"]{
+            display: block;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            display: inline;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #FFC0CB;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .header {
+            background-color: #99C0ED;
+            height: 80px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+
+        .home {
+            padding: 30px 0;
+        }
+
+        .header__nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav__item {
+            margin: 0 10px;
+        }
+
+        .nav__link {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .nav__link:hover {
+            color: #FFC0CB;
+        }
+
+        .task-heading {
+            font-size: 36px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+
+        th {
+            background-color: #99C0ED;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 16px;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+
+        <nav class="header__nav nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="/allUsers" class="nav__link">Users</a></li>
+                <li class="nav__item"><a href="/add" class="nav__link">Add user</a></li>
+                <li class="nav__item"><a href="/search" class="nav__link">Find user</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="home">
+    <div class="container">
+        <div class="task-heading">Add user</div>
+        <form action="/add" method="post">
+            <div class="text-field">
+                <label class="text-field__label" for="FIO">User surname</label>
+                <input class="text-field__input" type="text"pattern="([A-Za-z])+" name="FIO" id="FIO" required><br>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="age">Age</label>
+                <input class="text-field__input" type="number" name="age" id="age" required/><br>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="experience">Experience</label>
+                <input class="text-field__input" type="number" name="experience" id="experience" required/><br>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="rides">Rides</label>
+                <input class="text-field__input" type="text" name="rides" id="rides" required/><br>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="violation">Violations</label>
+                <input class="text-field__input" type="text" name="violation" id="violation" required/><br>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="password">Password</label>
+                <input class="text-field__input" type="text" name="password" id="password" required/><br>
+                <br>
+            </div>
+            <button type="submit" class="btn">Add</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

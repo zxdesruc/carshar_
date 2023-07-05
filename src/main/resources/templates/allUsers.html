@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+        body{
+            background-color: #EAF4FC;
+            font-size: 18px;
+        }
+        .header {
+            background-color: #99C0ED;
+            height: 80px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+        .home {
+            padding: 30px 0;
+        }
+
+        .header__nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav__item {
+            margin: 0 10px;
+        }
+
+        .nav__link {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .nav__link:hover {
+            color: #FFC0CB;
+        }
+
+        .task-heading {
+            font-size: 36px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #99C0ED;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 16px;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+
+        .btn-del {
+            background-color: #FFB6C1;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .btn-del:hover {
+            background-color: #FFC0CB;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+
+        <nav class="header__nav nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="/allUsers" class="nav__link">Users</a></li>
+                <li class="nav__item"><a href="/add" class="nav__link">Add user</a></li>
+                <li class="nav__item"><a href="/search" class="nav__link">Find user</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="home">
+    <div class="container">
+        <div class="task-heading">Car users</div>
+        <table class="table">
+            <tr>
+                <th>User surname</th>
+                <th>Age</th>
+                <th>Experience</th>
+                <th>Rides</th>
+                <th>Violations</th>
+            </tr>
+            <div th:each="el : ${carUsers}">
+                <tr>
+                    <td><p th:text="${el.FIO}"/></td>
+                    <td><p th:text="${el.age}"/></td>
+                    <td><p th:text="${el.experience}"/></td>
+                    <td><p th:text="${el.rides}"/></td>
+                    <td><p th:text="${el.violation}"/></td>
+                    <td>
+                        <form th:action="'/allUsers/'+ ${el.id}" method="post">
+                            <button class="btn-del" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</div>
+</body>
+</html>
